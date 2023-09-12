@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Voice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=poppins:400,500,600,700,800" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ["Poppins"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body>
+
+    <!-- Hero -->
+    <div class="relative overflow-hidden">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-6xl font-bold text-gray-800">
+                    Text To Voice - Google API
+                </h1>
+
+                <p class="mt-3 text-gray-600 ">
+                    Example Web App for Text to Voice using Google Text-to-Speech AI.
+                </p>
+
+                <div class="mt-7 sm:mt-12 mx-auto max-w-xl relative">
+                    <div class="relative z-10 flex space-x-3 p-3 bg-white border rounded-lg shadow-lg shadow-gray-100 ">
+                        <div class="flex-[1_0_0%]">
+                            <input id="textToSpeak"
+                                class="p-3 block w-full border-transparent rounded-md outline-dashed outline-1"
+                                placeholder="Text">
+                        </div>
+                        <div class="flex-[0_0_auto]">
+                            <button
+                                class="p-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">
+                                <svg id="clickToSpeak" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 1024 1024" class="cursor-pointer font-bold">
+                                    <path fill="currentColor"
+                                        d="M574.496 65.904c-10.432-5.552-23.087-4.928-32.911 1.696L220.497 319.712l-106.624.08c-54.512 0-98.88 38.657-98.88 86.4l1.712 211.137c0 47.536 44.352 86.224 98.863 86.224l106.592.065L541.552 956.37a31.977 31.977 0 0 0 17.905 5.472c5.152 0 10.32-1.249 15.008-3.745a31.951 31.951 0 0 0 17.008-28.256V94.16a32.026 32.026 0 0 0-16.977-28.257zm-47.023 803.728L249.874 645.106a31.97 31.97 0 0 0-17.889-5.473l-116.384-.064c-20.544 0-34.88-11.712-34.88-22.464L79.01 405.953c0-10.48 14.336-22.16 34.896-22.16l116.4-.08a32.017 32.017 0 0 0 17.855-5.457l279.312-224v715.376zm320.993-352.126c0-85.008-58.433-156.433-138.913-169.873c-17.712-2.928-33.935 8.864-36.848 26.305c-2.912 17.424 8.88 33.92 26.288 36.832c50.32 8.4 85.473 52.304 85.473 106.753c0 51.84-36.368 96.687-86.496 106.688c-17.344 3.44-28.592 20.288-25.12 37.631c3.024 15.216 16.368 25.745 31.344 25.745a31.34 31.34 0 0 0 6.288-.624c79.952-15.936 137.984-87.216 137.984-169.456zm-42.465-293.601c-16.528-6.16-35.01 2.241-41.153 18.8c-6.193 16.56 2.223 34.992 18.783 41.168c96.528 36.015 161.376 129.903 161.376 233.63c0 103.777-64.848 197.842-161.312 234.002c-16.56 6.223-24.944 24.655-18.751 41.183c4.816 12.88 17.009 20.785 29.969 20.785a31.97 31.97 0 0 0 11.215-2.033c121.344-45.504 202.88-163.632 202.88-293.936s-81.6-248.288-203.007-293.599z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- SVG Element -->
+                    <div class="hidden md:block absolute top-0 right-0 -translate-y-12 translate-x-20">
+                        <svg class="w-16 h-auto text-orange-500" width="121" height="135" viewBox="0 0 121 135"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 16.4754C11.7688 27.4499 21.2452 57.3224 5 89.0164" stroke="currentColor"
+                                stroke-width="10" stroke-linecap="round" />
+                            <path d="M33.6761 112.104C44.6984 98.1239 74.2618 57.6776 83.4821 5" stroke="currentColor"
+                                stroke-width="10" stroke-linecap="round" />
+                            <path d="M50.5525 130C68.2064 127.495 110.731 117.541 116 78.0874" stroke="currentColor"
+                                stroke-width="10" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <!-- End SVG Element -->
+
+                    <!-- SVG Element -->
+                    <div class="hidden md:block absolute bottom-0 left-0 translate-y-10 -translate-x-32">
+                        <svg class="w-40 h-auto text-cyan-500" width="347" height="188" viewBox="0 0 347 188"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4 82.4591C54.7956 92.8751 30.9771 162.782 68.2065 181.385C112.642 203.59 127.943 78.57 122.161 25.5053C120.504 2.2376 93.4028 -8.11128 89.7468 25.5053C85.8633 61.2125 130.186 199.678 180.982 146.248L214.898 107.02C224.322 95.4118 242.9 79.2851 258.6 107.02C274.299 134.754 299.315 125.589 309.861 117.539L343 93.4426"
+                                stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <!-- End SVG Element -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Hero -->
+
+    <script src="assets/js/script-google.js"></script>
+</body>
+
+</html>
